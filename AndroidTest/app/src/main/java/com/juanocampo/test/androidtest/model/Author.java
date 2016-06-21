@@ -3,10 +3,12 @@ package com.juanocampo.test.androidtest.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by juanocampo on 6/14/16.
  */
-public class Author {
+public class Author implements Serializable {
 
     @SerializedName("name")
     @Expose
@@ -44,7 +46,7 @@ public class Author {
     }
 
 
-    public class Name {
+    public class Name implements Serializable {
 
         @SerializedName("label")
         @Expose
@@ -67,7 +69,7 @@ public class Author {
     }
 
 
-    public class Uri {
+    public class Uri implements Serializable {
 
         @SerializedName("label")
         @Expose

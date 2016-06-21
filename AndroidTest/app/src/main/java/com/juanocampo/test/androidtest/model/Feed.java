@@ -1,20 +1,26 @@
 package com.juanocampo.test.androidtest.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * Created by juanocampo on 6/14/16.
  */
-public class Feed {
+public class Feed implements Serializable {
 
     private final Author author;
-    private final Entry entry;
+    @SerializedName("entry")
+    private final List<Entry> entries;
     private final Label updated;
     private final Label rights;
     private final Label title;
     private final Label icon;
 
-    public Feed(Author author, Entry entry, Label updated, Label rights, Label title, Label icon) {
+    public Feed(Author author, List<Entry> entries, Label updated, Label rights, Label title, Label icon) {
         this.author = author;
-        this.entry = entry;
+        this.entries = entries;
         this.updated = updated;
         this.rights = rights;
         this.title = title;
@@ -25,8 +31,8 @@ public class Feed {
         return author;
     }
 
-    public Entry getEntry() {
-        return entry;
+    public List<Entry> getEntries() {
+        return entries;
     }
 
     public Label getUpdated() {

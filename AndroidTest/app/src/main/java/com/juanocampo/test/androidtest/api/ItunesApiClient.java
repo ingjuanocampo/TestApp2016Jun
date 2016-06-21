@@ -1,6 +1,7 @@
 package com.juanocampo.test.androidtest.api;
 
 import com.juanocampo.test.androidtest.model.Feed;
+import com.juanocampo.test.androidtest.model.ServiceResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -11,5 +12,5 @@ import retrofit2.http.GET;
 public interface ItunesApiClient {
 
     @GET("/us/rss/topfreeapplications/limit=20/json")
-    Call<Feed> getApps();
+    Call<ServiceResponse> getApps();
 }

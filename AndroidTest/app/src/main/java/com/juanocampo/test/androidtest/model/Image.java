@@ -3,10 +3,12 @@ package com.juanocampo.test.androidtest.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by juanocampo on 6/16/16.
  */
-public class Image {
+public class Image implements Serializable {
 
     public class Attributes {
 

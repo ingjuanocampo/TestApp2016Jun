@@ -3,12 +3,13 @@ package com.juanocampo.test.androidtest.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by juanocampo on 6/16/16.
  */
-public class Entry {
+public class Entry implements Serializable {
 
     @SerializedName("im:name")
     private final Label name;
@@ -26,6 +27,46 @@ public class Entry {
     @SerializedName("im:releaseDate")
     private final ReleaseDate releaseDate;
 
+    public Label getName() {
+        return name;
+    }
+
+    public List<Image> getImagesList() {
+        return imagesList;
+    }
+
+    public Label getSummary() {
+        return summary;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public ContentType getContentType() {
+        return contentType;
+    }
+
+    public Label getRights() {
+        return rights;
+    }
+
+    public Label getTitle() {
+        return title;
+    }
+
+    public Link getLink() {
+        return link;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public ReleaseDate getReleaseDate() {
+        return releaseDate;
+    }
+
     protected Entry(Label name, List<Image> imagesList, Label summary, Price price, ContentType contentType, Label rights, Label title, Link link, Category category, ReleaseDate releaseDate) {
         this.name = name;
         this.imagesList = imagesList;
@@ -39,7 +80,7 @@ public class Entry {
         this.releaseDate = releaseDate;
     }
 
-    private class ReleaseDate {
+    public class ReleaseDate implements Serializable {
         private final Label attributes;
 
         private ReleaseDate(Label attributes) {
@@ -51,7 +92,7 @@ public class Entry {
         }
     }
 
-    public class Category {
+    public class Category implements Serializable {
         private final CategoryAttributes attributes;
 
         public Category(CategoryAttributes attributes) {
@@ -63,7 +104,7 @@ public class Entry {
         }
     }
 
-    public class CategoryAttributes {
+    public class CategoryAttributes implements Serializable {
         @SerializedName("im:id")
         private final String id;
         private final String term;
@@ -94,7 +135,7 @@ public class Entry {
         }
     }
 
-    public class Link {
+    public class Link implements Serializable {
         private final LinkAttributes attributes;
 
         private Link(LinkAttributes attributes) {
@@ -106,7 +147,7 @@ public class Entry {
         }
     }
 
-    public class LinkAttributes {
+    public class LinkAttributes implements Serializable {
         private final String rel;
         private final String type;
         private final String href;
@@ -130,7 +171,7 @@ public class Entry {
         }
     }
 
-    public class ContentType {
+    public class ContentType implements Serializable {
         @SerializedName("attributes")
         private final ContentTypeAttributes contentTypeAttributes;
 
@@ -143,7 +184,7 @@ public class Entry {
         }
     }
 
-    public class ContentTypeAttributes {
+    public class ContentTypeAttributes implements Serializable {
         private final String term;
         private final String label;
 
@@ -161,7 +202,7 @@ public class Entry {
         }
     }
 
-    public class Price {
+    public class Price implements Serializable {
         private final String label;
         @SerializedName("attributes")
         private final PriceAttributes priceAttributes;
@@ -180,7 +221,7 @@ public class Entry {
         }
     }
 
-    public class PriceAttributes {
+    public class PriceAttributes implements Serializable {
         private final String amount;
         private final String currency;
 
@@ -200,17 +241,17 @@ public class Entry {
     }
 
 
-    public class Image {
-        private final Label label;
+    public class Image implements Serializable {
+        private final String label;
         private final Attributes attributes;
 
 
-        public Image(Label label, Attributes attributes) {
+        public Image(String label, Attributes attributes) {
             this.label = label;
             this.attributes = attributes;
         }
 
-        public Label getLabel() {
+        public String getLabel() {
             return label;
         }
 
@@ -219,7 +260,7 @@ public class Entry {
         }
     }
 
-    public class Attributes {
+    public class Attributes implements Serializable {
 
         @SerializedName("height")
         @Expose

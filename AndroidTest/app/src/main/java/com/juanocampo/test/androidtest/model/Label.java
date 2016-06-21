@@ -1,9 +1,11 @@
 package com.juanocampo.test.androidtest.model;
 
+import java.io.Serializable;
+
 /**
  * Created by juanocampo on 6/16/16.
  */
-public class Label {
+public class Label implements Serializable {
     private final String label;
 
     public Label(String label) {
